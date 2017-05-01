@@ -1,5 +1,5 @@
 FROM ubuntu:15.10
-MAINTAINER Jamgo Coop <info@jamgo.coop>
+MAINTAINER Jamgo Coop <info@jamgo.coop> (tweaked by jimb0)
 
 # Install required packages
 RUN set -x; \
