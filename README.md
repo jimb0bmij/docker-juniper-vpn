@@ -15,6 +15,9 @@ This is only a simple implementation to skip browser connect limitations in linu
 
 # To test
 
+docker build -t jimb0mbij/juniper-vpn .
+
+
 docker exec -it junipervpn bash
 
 route
