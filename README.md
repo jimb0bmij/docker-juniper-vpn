@@ -22,4 +22,9 @@ Once started you can route subnets from host via docker container:
     fi
     sudo route add -net a.b.c.0 netmask 255.255.255.0 gw $JUNIPER_DOCKER_IP
     sudo route add -net x.y.z.0 netmask 255.255.255.0 gw $JUNIPER_DOCKER_IP
+    
+    when done
+    
+    sudo route del -net 10.0.0.0 gw $JUNIPER_DOCKER_IP netmask 255.0.0.0
+    
     ...
