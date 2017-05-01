@@ -12,6 +12,14 @@ This is only a simple implementation to skip browser connect limitations in linu
 
     docker run --name junipervpn -e JUNIPER_HOST=<host> -e JUNIPER_USER=<user> -e JUNIPER_PASSWORD=<password> --privileged=true -d -ti jamgocoop/juniper-vpn
 
+
+# To test
+
+docker exec -it junipervpn bash
+route
+ping destination
+exit
+
 Once started you can route subnets from host via docker container:
 
     #! /bin/bash
