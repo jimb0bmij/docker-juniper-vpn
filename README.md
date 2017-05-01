@@ -4,7 +4,7 @@ Dockerized juniper vpn connection using:
 
 > http://www.infradead.org/openconnect/
 
-> https://github.com/jimb0bmij/juniper-vpn-py
+> https://github.com/jamgocoop/juniper-vpn-py
 
 This is only a simple implementation to skip browser connect limitations in linux.
 
