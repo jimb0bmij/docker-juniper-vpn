@@ -28,6 +28,8 @@ exit
 
 docker stop junipervpn
 
+docker restart junipervpn
+
 Once started you can route subnets from host via docker container:
 
     #! /bin/bash
