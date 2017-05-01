@@ -10,7 +10,7 @@ This is only a simple implementation to skip browser connect limitations in linu
 
 # How to use this image
 
-    docker run --name junipervpn -e JUNIPER_HOST=<host> -e JUNIPER_USER=<user> -e JUNIPER_PASSWORD=<password> --privileged=true -d -ti jamgocoop/juniper-vpn
+    docker run --name junipervpn -e JUNIPER_HOST=<host> -e JUNIPER_USER=<user> -e JUNIPER_PASSWORD=<password> --privileged=true -d -ti jimb0mbij/juniper-vpn
 
 
 # To test
