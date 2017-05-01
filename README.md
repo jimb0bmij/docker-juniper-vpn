@@ -26,6 +26,8 @@ ping destination
 
 exit
 
+docker stop junipervpn
+
 Once started you can route subnets from host via docker container:
 
     #! /bin/bash
