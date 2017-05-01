@@ -4,7 +4,7 @@ MAINTAINER Jamgo Coop <info@jamgo.coop>
 # Install required packages
 RUN set -x; \
     apt-get update && \
-    apt-get install -y --no-install-recommends git openconnect python-mechanize iptables supervisor && \
+    apt-get install -y --no-install-recommends git openconnect python-mechanize iputils-ping iptables supervisor && \
 	cd /root && \
 	git clone -c http.sslVerify=false https://github.com/jamgocoop/juniper-vpn-py.git && \
     rm -rf /var/lib/apt/lists/* && \
