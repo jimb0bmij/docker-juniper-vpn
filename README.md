@@ -15,6 +15,10 @@ This is only a simple implementation to skip browser connect limitations in linu
 
 # To test
 
+git clone https://github.com/jimb0bmij/docker-juniper-vpn
+
+cd docker-juniper-vpn
+
 docker build -t jimb0mbij/juniper-vpn .
 
 
