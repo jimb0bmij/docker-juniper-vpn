@@ -21,6 +21,7 @@ cd docker-juniper-vpn
 
 docker build -t jimb0mbij/juniper-vpn .
 
+docker run --name junipervpn -e JUNIPER_HOST=test.com -e JUNIPER_USER=test -e JUNIPER_PASSWORD=test --privileged=true -d -ti jimb0mbij/juniper-vpn
 
 docker exec -it junipervpn bash
 
