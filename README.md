@@ -1,3 +1,5 @@
+# I forked this. What I did not like is not enough scripts and if you do it via command line your password shows up in PS -ef.
+
 # docker-juniper-vpn
 
 Dockerized juniper vpn connection using:
@@ -12,8 +14,7 @@ This is only a simple implementation to skip browser connect limitations in linu
 
     docker run --name junipervpn -e JUNIPER_HOST=<host> -e JUNIPER_USER=<user> -e JUNIPER_PASSWORD=<password> --privileged=true -d -ti jimb0mbij/juniper-vpn
 
-
-# To test
+# To test jimb0bmij way
 
 git clone https://github.com/jimb0bmij/docker-juniper-vpn
 
@@ -22,7 +23,7 @@ cd docker-juniper-vpn
 docker build -t jimb0mbij/juniper-vpn .
 
 ./ivpn.sh (Fill in information requested)
-If you see your vpn ip in the route table should be good.
+If you see your vpn ip in the route table you should be good.
 
 If you wish to test more:
 
@@ -32,29 +33,20 @@ ping destination
 exit
 
 
-Once container is started you can route subnets from host via docker container:
+./rvpn.sh (This routes the container to your local machine)
 
-    #! /bin/bash
-    JUNIPER_DOCKER_IP="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' junipervpn)"
-    if [ -z "$JUNIPER_DOCKER_IP" ]; then
-    	echo >&2 'error: missing JUNIPER_DOCKER_IP, is junipervpn docker running?'
-    	exit 1;
-    fi
-    sudo route add -net 10.0.0.0 netmask 255.0.0.0 gw $JUNIPER_DOCKER_IP
-    #sudo route add -net a.b.c.0 netmask 255.255.255.0 gw $JUNIPER_DOCKER_IP
-    #sudo route add -net x.y.z.0 netmask 255.255.255.0 gw $JUNIPER_DOCKER_IP
-    
-    # when done
-    
-    while [ "$yn" != "Yes" ]; do
-    echo "Stop VPN? (Yes)"
-    read yn
-    done
-   
-    sudo route del -net 10.0.0.0 gw $JUNIPER_DOCKER_IP netmask 255.0.0.0
-    
+In a new terminal session.
+route
+ping destination
 
+When done vpn'in answer yes (to the rvpn.sh script) to stop the routing.
 docker stop junipervpn
 
+DONE
+
+To Start again:
+
 docker start junipervpn
+./rvpn.sh
+
 
