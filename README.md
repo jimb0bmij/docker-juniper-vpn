@@ -21,21 +21,18 @@ cd docker-juniper-vpn
 
 docker build -t jimb0mbij/juniper-vpn .
 
-docker run --name junipervpn -e JUNIPER_HOST=test.com -e JUNIPER_USER=test -e JUNIPER_PASSWORD=test --privileged=true -d -ti jimb0mbij/juniper-vpn
+./ivpn.sh (Fill in information requested)
+If you see your vpn ip in the route table should be good.
+
+If you wish to test more:
 
 docker exec -it junipervpn bash
-
 route
-
 ping destination
-
 exit
 
-docker stop junipervpn
 
-docker restart junipervpn
-
-Once started you can route subnets from host via docker container:
+Once container is started you can route subnets from host via docker container:
 
     #! /bin/bash
     JUNIPER_DOCKER_IP="$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' junipervpn)"
@@ -56,4 +53,8 @@ Once started you can route subnets from host via docker container:
    
     sudo route del -net 10.0.0.0 gw $JUNIPER_DOCKER_IP netmask 255.0.0.0
     
+
+docker stop junipervpn
+
+docker start junipervpn
 
