@@ -23,7 +23,7 @@ cd docker-juniper-vpn
 docker build -t jimb0mbij/juniper-vpn .
 
 ./ivpn.sh (Fill in information requested)
-If you see your vpn ip in the route table you should be good.
+After the connection is completed you should see your vpn server ip in the route table and you should be good.
 
 If you wish to test more:
 
